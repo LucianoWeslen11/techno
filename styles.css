@@ -1,0 +1,394 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif:400,700&display=swap');
+
+*{
+  box-sizing: border-box;
+}
+
+body, h1, h2, ul, li, p {
+  padding: 0px;
+  margin: 0px;
+}
+
+ul{
+  list-style: none;
+}
+
+body{
+  background: linear-gradient(to right, #1a1a1a 30%, #fff 30%);
+  font-family: "Noto Serif";
+}
+
+#app{
+  padding: 0 80px;
+}
+
+/* HEADER */
+.header{
+  display: flex;
+  justify-content: space-between;
+  max-width: 900px;
+  padding: 20px 0px;
+  margin: 0 auto;
+}
+
+.logo{
+  width: 80px;
+}
+
+.shopping-cart::after{
+  content: "";
+  display: inline-block;
+  background: url("./assets/carrinho.svg") no-repeat center center;
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
+}
+
+.shopping-cart{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* LIST PRODUCTS */
+.products{
+  max-width: 900px;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.product{
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  background: #fff;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, .1);
+  cursor: pointer;
+}
+
+.product-img{
+  max-width: 300px;
+  margin-right: 40px;
+}
+
+.product-title{
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.product-price{
+  color: rgba(0, 0, 0, .5);
+}
+
+/* POP-UP */
+.pop-up::before{
+  content: ""; 
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, .5);
+}
+
+.pop-up{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  padding: 80px;
+}
+
+.pop-up-info{
+  position: relative;
+  background: linear-gradient(to right, transparent 300px, white 300px);
+  z-index: 1;
+  display: grid;
+  align-items: end;
+  grid-gap: 50px;
+  padding: 50px 50px 50px 0;
+  animation: fadeIn .3s forwards;
+}
+
+@keyframes fadeIn{
+  from{
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to{
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.pop-up-btnClose{
+  border-radius: 50%;
+  border: 2px solid #000;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1), 0px 4px 10px rgba(0, 0, 0, 0.2);
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.pop-up-close:hover{
+  background: #000;
+  color: #fff;
+   border: 2px solid #fff;
+}
+
+
+.info-image{
+  grid-column: 1;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1), 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.info-img img{
+  max-width: 300px;
+  display: block;
+}
+
+.info-data{
+  grid-column: 2;
+  max-width: 600px;
+}
+
+.info-title{
+  font-size: 3rem;
+}
+
+.info-btn{
+  margin-top: 80px;
+  background: #000;
+  color: #fff;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 10px 25px;
+  font-family: "Noto Serif";
+}
+
+.info-btn.soldOff{
+  background: rgb(160, 0, 0);
+}
+
+.info-btn:hover{
+  background: #808080;
+}
+
+/* REVIEW */
+.pop-up-reviews{
+  grid-column: 2;
+}
+
+.review-subtitle{
+  font-size: 1.75rem;
+}
+
+.review{
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+  padding-bottom: 20px;
+}
+
+.review-description{
+  color: rgba(0, 0, 0, .7);
+  margin: 20px 0 5px 0;
+}
+
+.review-user{
+  font-weight: bold;
+}
+
+/* ALERTA */
+.alert{
+  position: absolute;
+  top: 20px;
+  left: 0px;
+  z-index: 10;
+  width: 100%;
+  text-align: center;
+  display: none;
+}
+
+.alert.active{
+  display: block;
+  animation: FadeInDown .3s forwards;
+}
+
+@keyframes FadeInDown{
+  from{
+    transform: translate3D(0, -30px , 0);
+    opacity: 0;
+  }
+  to{
+    transform: translate3D(0, 0px, 0);
+    opacity: 1;
+  }
+}
+
+.mensageAlert{
+  background-color: white;
+  display: inline-block;
+  padding: 20px 40px;
+  border: 2px solid black;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1), 0px 4px 10px rgba(0, 0, 0, 0.2);
+
+}
+
+/* CARRINHO */
+.shoppingCart-modal::before {
+  content: "";
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0,0,0,.5);
+}
+
+.shoppingCart-modal {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  padding: 20px;
+  display: none;
+}
+
+.shoppingCart-modal.active {
+  display: block;
+}
+
+.shoppingCart{
+  position: relative;
+  margin: 80px auto;
+  background: #ffffff;
+  padding: 40px;
+  max-width: 800px;
+  animation: fadeInDown .3s forwards;
+}
+
+.shoppingCart-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr 50px;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  padding: 10px 0;
+}
+
+.shoppingCart-title {
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #000000;
+}
+
+.shoppingCart-remove{
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: transparent;
+}
+
+.shoppingCart-remove:hover{
+  color: red
+}
+
+.shoppingCart-price{
+  text-align: right;
+}
+
+.shoppingCart-total {
+  text-align: right;
+  padding: 10px 50px 10px 0;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #000;
+}
+
+.shoppingCart-close{
+  border-radius: 50%;
+  border: 2px solid #000;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 1rem;
+  box-shadow: 0px 3px 4px rgba(0,0,0,.1), 0px 4px 10px rgba(0,0,0,.2);
+  cursor: pointer;
+}
+
+.shoppingCart-close:hover{
+  background-color: red;
+}
+
+.shoppingCart-finish{
+  display: block;
+  margin-left: auto;
+  background: #000;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 1rem;
+  padding: 10px 25px;
+  border: none;
+  font-family: "Noto Serif";
+}
+
+.shoppingCart-finish:hover{
+  background-color: green
+}
+
+@media screen and (max-width: 900px){
+  #app{
+    padding: 0px 10px;
+
+  }
+  .products{
+    margin-top: 40px;
+  }
+  .product{
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 300px;
+    margin: 30px auto 30px auto;
+  }
+  .product-info{
+    padding: 20px;
+
+  }
+  .product-img {
+    max-width: 100%;
+  }
+  .product-title{
+    font-size: 1.5rem;
+  }
+  .pop-up{
+    padding: 10px;
+  }
+  .pop-up .pop-up-info{
+    grid-gap: 20px;
+    background-color: #ffffff;
+    padding: 10px 0px;
+  }
+  .info-img{
+    grid-row: 2;
+  }
+  .info-btn{
+    margin-top: 20px;
+  }
+  .info-data{
+    grid-column: 1;
+  }
+  .pop-up-reviews{
+    grid-column: 1;
+    padding: 10px;
+  }
+}

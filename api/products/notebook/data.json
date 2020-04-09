@@ -1,0 +1,21 @@
+{
+  "id": "notebook",
+  "name": "Notebook",
+  "price": 1499,
+  "img": "./api/products/notebook/notebook.jpg",
+  "description": "Todas estas questões, devidamente ponderadas, levantam dúvidas sobre se a necessidade de renovação processual causa impacto indireto na reavaliação do orçamento setorial.",
+  "stock": 12,
+  "img": "./api/products/notebook/notebook-v.jpg",
+  "reviews": [
+    {
+      "name": "Fábio",
+      "stars": 5,
+      "description": "Gostei muito do produto, atendeu todas as minhas necessidades."
+    },
+    {
+      "name": "Nathalia",
+      "stars": 4,
+      "description": "Produto muito bom, mas poderia ser um pouco mais barato."
+    }
+  ]
+}
